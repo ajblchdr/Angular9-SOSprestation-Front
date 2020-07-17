@@ -1,0 +1,89 @@
+<div class="container-fluid">
+    <div class="row mt-75">
+        <div class="col-xl-3"></div>
+        <div class="col-xl-6">
+
+            <div class="card">
+                <div class="card-header">
+                    <h3><span class="fa fa-plus-circle" aria-hidden="true"></span> Nouveau Service</h3>
+                </div>
+                <div class="card-body">
+
+                    <div>
+                        <form (ngSubmit)="onSubmit()">
+
+                            <div class="form-group">
+                                <label for="name">Categorie</label>
+                                <select class="form-control" (change)="onChange($event.target.value)">
+                                    <option value="0"></option>
+                                    <option *ngFor="let category of categories" value="{{ category.categoryId }}">{{ category.name }}</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="name">Service</label>
+                                <select class="form-control" (change)="onChangeServices($event.target.value)">
+                                    <option value="0"></option>
+                                    <option *ngFor="let service of services" value="{{ service.serviceId }}">{{ service.name }}</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="name">Adresse</label>
+                                <input type="text" class="form-control" id="address" required
+                                    [(ngModel)]="address" name="address">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="name">Code Postal</label>
+                                <input type="text" class="form-control" id="postalCode" required
+                                    [(ngModel)]="postalCode" name="postalCode">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="name">Ville</label>
+                                <input type="text" class="form-control" id="town" required
+                                    [(ngModel)]="town" name="town">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="name">Rayon d'intervention(km)</label>
+                                <input type="text" class="form-control" id="interventionRadius" required
+                                    [(ngModel)]="serviceInterventionInformation.interventionRadius" name="interventionRadius">
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xl-6">
+                                    <div class="form-group">
+                                        <label for="name">Heure minimum</label>
+                                        <input type="text" class="form-control" id="minHour" required
+                                            [(ngModel)]="serviceInterventionInformation.minHour" name="minHour">
+                                    </div>
+                                </div>
+                                <div class="col-xl-6">
+                                    <div class="form-group">
+                                        <label for="name">Heure maximum</label>
+                                        <input type="text" class="form-control" id="maxHour" required
+                                            [(ngModel)]="serviceInterventionInformation.maxHour" name="maxHour">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-check mb-1">
+                                <input type="checkbox" class="form-check-input" id="rememberMe" [(ngModel)]="serviceInterventionInformation.isActive" name="remmemberMe">
+                                <label class="form-check-label" for="rememberMe">Désactiver</label>
+                            </div>
+
+                            <button type="submit" class="btn btn-success">Valider</button>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-xl-3"></div>
+    </div>
+</div>
+

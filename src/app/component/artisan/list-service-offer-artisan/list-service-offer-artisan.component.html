@@ -1,0 +1,37 @@
+
+<div class="container-fluid">
+
+    <div class="row mt-75">
+
+        <div class="col-xl-3"></div>
+        <div class="col-xl-6"><br>
+
+            <h3 class="text-secondary card-title text-center"><span class="fa fa-inbox" aria-hidden="true"></span> Demandes de prestation</h3><hr>
+
+            <span *ngFor="let soi of serviceOffersInformations">
+                <div class="card">
+                    <h5 class="card-header">{{ soi.title }}</h5>
+                    <div class="card-body">
+                        <h5 class="card-title">Client : {{ soi.clientFirstname }} {{ soi.clientLastname }}</h5>
+                        <p class="card-text">Categorie : {{ soi.categoryName }}</p>
+                        <p class="card-text">Service : {{ soi.serviceName }}</p>
+                        <p class="card-text">Date : {{ soi.date }}</p>
+                        <div class="row">
+                            <div class="col-xl-6 mb-2">
+                            <a href="/artisan/detailsDemande?id={{ soi.serviceOfferId }}" class="btn btn-primary btn-block">Détails</a>
+                            </div>
+                            <div class="col-xl-6">
+                                <a href="/artisan/nouvelleProposition?id={{ soi.serviceOfferId }}" class="btn btn-outline-primary btn-block">Faire une proposition</a>
+                            </div>
+                        </div>
+                    </div>
+                </div><br>
+            </span>
+
+
+        </div>
+        <div class="col-xl-3"></div>
+
+    </div>
+
+</div>
